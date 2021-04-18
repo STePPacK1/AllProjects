@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.Windows.PropertyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Windows"
+        mc:Ignorable="d"
+        Title="PropertyWindow" x:Name="LocalWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="10" TextWrapping="Wrap" Style="{DynamicResource Heading1}" Text="{Binding ElementName=LocalWindow, Path=Title}" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Город" Style="{DynamicResource Heading3}" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Улица" Style="{DynamicResource Heading3}" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Дом" Style="{DynamicResource Heading3}" Grid.Row="3" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Квартира" Style="{DynamicResource Heading3}" Grid.Row="4" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Район" Style="{DynamicResource Heading3}" Grid.Row="5" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Тип" Style="{DynamicResource Heading3}" Grid.Row="6" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Комнат" Style="{DynamicResource Heading3}" Grid.Row="7" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Этаж" Style="{DynamicResource Heading3}" Grid.Row="8" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Площадь" Style="{DynamicResource Heading3}" Grid.Row="9" VerticalAlignment="Center" TextAlignment="Right"/>
+        <ComboBox x:Name="CityCBox" Grid.Column="1" Margin="10" DisplayMemberPath="Name" SelectedItem="{Binding Address.Street.City}" Grid.Row="1" VerticalAlignment="Center" SelectionChanged="CityCBox_SelectionChanged"/>
+        <ComboBox x:Name="StreetCBox" Grid.Column="1" Margin="10" DisplayMemberPath="Name" SelectedItem="{Binding Address.Street}" Grid.Row="2" VerticalAlignment="Center" IsEnabled="False"/>
+        <TextBox x:Name="HouseTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Address.HomeNumber}" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBox x:Name="ApartmentTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Address.ApartmentNumber}" Grid.Row="4" VerticalAlignment="Center"/>
+        <ComboBox x:Name="DistrictCBox" Grid.Column="1" Margin="10" DisplayMemberPath="Name" SelectedItem="{Binding Address.District}" Grid.Row="5" VerticalAlignment="Center"/>
+        <ComboBox x:Name="TypeCBox" Grid.Column="1" Margin="10" DisplayMemberPath="Name" SelectedItem="{Binding TypeProperty}" Grid.Row="6" VerticalAlignment="Center"/>
+        <TextBox x:Name="RoomTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Room}" Grid.Row="7" VerticalAlignment="Center"/>
+        <TextBox x:Name="FloorTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Floor}" Grid.Row="8" VerticalAlignment="Center"/>
+        <TextBox x:Name="AreaTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Area}" Grid.Row="9" VerticalAlignment="Center"/>
+        <Button x:Name="SaveBtn" Content="Сохранить" Style="{DynamicResource PrimaryBtn}" Click="SaveBtn_Click" Grid.Column="1" Margin="10" Grid.Row="10" IsDefault="True"/>
+        <Button x:Name="CancelBtn" Style="{DynamicResource OutlineBtn}" Content="Закрыть" Click="CancelBtn_Click" Margin="10" Grid.Row="10" IsCancel="True"/>
+
+    </Grid>
+</Window>

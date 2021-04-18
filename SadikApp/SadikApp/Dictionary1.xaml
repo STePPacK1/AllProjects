@@ -1,0 +1,64 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SadikApp">
+    <Style x:Key="buttonStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Neo Sans"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="{DynamicResource colorOne}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" CornerRadius="10" Background="{TemplateBinding Property=Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Property=Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    
+    <Style x:Key="tblStyle" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Neo Sans"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="headingtb" TargetType="TextBlock"  BasedOn="{StaticResource tblStyle}">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="22"/>
+        </Style.Setters>
+    </Style>
+    
+    <Style x:Key="tbStyle" TargetType="TextBox">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Neo Sans"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource colorTwo}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderThickness="1" CornerRadius="7" BorderBrush="{TemplateBinding Property=BorderBrush}">
+                            <ContentPresenter Margin="4,0" Content="{TemplateBinding Property=Text}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <SolidColorBrush x:Key="colorOne">
+        <SolidColorBrush.Color>
+            <Color>#FF25B064</Color>
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+
+    <SolidColorBrush x:Key="colorTwo">
+        <SolidColorBrush.Color>
+            <Color>#FF25B090</Color>
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+</ResourceDictionary>

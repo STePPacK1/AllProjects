@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e351ac7450a428bad21f2de0b19887b" Name="Diagram1">
+        <EntityTypeShape EntityType="RealEstateModel.Account" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Address" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.City" Width="1.5" PointX="1.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Client" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Coordinate" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Deal" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.District" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Need" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Offer" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Property" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Realtor" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.Street" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="RealEstateModel.TypeProperty" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="RealEstateModel.FK_Client_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Realtor_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Address_District" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Address_Street" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Need_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Property_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Street_City" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Need_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Offer_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_District_Coordinate" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Deal_Need" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Deal_Offer" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Need_Realtor" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Need_TypeProperty" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Offer_Property" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Offer_Realtor" ManuallyRouted="false" />
+        <AssociationConnector Association="RealEstateModel.FK_Property_TypeProperty" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RealEstateModel.Gender" Width="1.5" PointX="8.375" PointY="0.875" />
+        <AssociationConnector Association="RealEstateModel.FK_Client_Gender" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

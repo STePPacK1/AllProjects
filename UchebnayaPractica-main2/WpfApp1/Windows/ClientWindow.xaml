@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.Windows.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Windows"
+        mc:Ignorable="d"
+        Title="ClientWindow" x:Name="LocalWindow" Height="450" Width="800" DataContextChanged="LocalWindow_DataContextChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="10" TextWrapping="Wrap" Style="{DynamicResource Heading1}" Text="{Binding ElementName=LocalWindow, Path=Title}" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Имя" Style="{DynamicResource Heading3}" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Фамилия" Style="{DynamicResource Heading3}" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Отчество" Style="{DynamicResource Heading3}" Grid.Row="3" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Телефон" Style="{DynamicResource Heading3}" Grid.Row="4" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Email" Style="{DynamicResource Heading3}" Grid.Row="5" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Логин" Style="{DynamicResource Heading3}" Grid.Row="6" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Пароль" Style="{DynamicResource Heading3}" Grid.Row="7" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Пол" Style="{DynamicResource Heading3}" Grid.Row="8" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Фото" Style="{DynamicResource Heading3}" Grid.Row="9" VerticalAlignment="Center" TextAlignment="Right"/>
+        <TextBox x:Name="FirstNameTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding FirstName}" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="LastNameTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding LastName}" Grid.Row="2" VerticalAlignment="Center"/>
+        <TextBox x:Name="PatronymicTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Patronymic}" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBox x:Name="PhoneTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Phone}" Grid.Row="4" VerticalAlignment="Center"/>
+        <TextBox x:Name="EmailTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Email}" Grid.Row="5" VerticalAlignment="Center"/>
+        <TextBox x:Name="LoginTBox" Grid.Column="1" Margin="10" TextWrapping="Wrap" Text="{Binding Account.Login}" Grid.Row="6" VerticalAlignment="Center"/>
+        <ComboBox x:Name="GenderCBox" Grid.Column="1" Margin="10" SelectedItem="{Binding Gender1}" DisplayMemberPath="Name" Grid.Row="8" VerticalAlignment="Center"/>
+        <Button x:Name="PhotoBtn" Content="Загрузить..." Style="{DynamicResource PrimaryBtn}" Click="PhotoBtn_Click" Grid.Column="1" Margin="10" Grid.Row="9" IsDefault="True"/>
+        <PasswordBox x:Name="PasswordPBox" Grid.Column="1" Margin="10" Grid.Row="7" VerticalAlignment="Center"/>
+        <Button x:Name="SaveBtn" Content="Сохранить" Style="{DynamicResource PrimaryBtn}" Click="SaveBtn_Click" Grid.Column="1" Margin="10" Grid.Row="10" IsDefault="True"/>
+        <Button x:Name="CancelBtn" Style="{DynamicResource OutlineBtn}" Content="Закрыть" Click="CancelBtn_Click" Margin="10" Grid.Row="10" IsCancel="True"/>
+
+    </Grid>
+</Window>

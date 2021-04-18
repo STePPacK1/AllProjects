@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfApp1.Windows.NeedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Windows"
+        mc:Ignorable="d"
+        Title="NeedWindow" x:Name="LocalWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ElementName=LocalWindow, Path=Title}" Style="{DynamicResource Heading1}" Margin="10" />
+        <TextBlock Grid.Row="1" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Клиент" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Grid.Row="2" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Риэлтор" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Grid.Row="3" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Тип недвижимости" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Grid.Row="5" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Минимальная Цена" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Grid.Row="6" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Максимальная Цена" VerticalAlignment="Center" Margin="10" />
+        <TextBlock Grid.Row="4" TextAlignment="Right" Style="{DynamicResource Heading3}" Text="Адрес" VerticalAlignment="Center" Margin="10" />
+        <ComboBox x:Name="ClientCBox" Grid.Row="1" Grid.Column="1" SelectedItem="{Binding Client}" VerticalAlignment="Center" Margin="10" DisplayMemberPath="FirstName" />
+        <ComboBox x:Name="RealtorCBox" Grid.Row="2" SelectedItem="{Binding Realtor}" Grid.Column="1" VerticalAlignment="Center" Margin="10" DisplayMemberPath="FirstName" />
+        <ComboBox x:Name="PropertyTypeCBox" SelectedItem="{Binding TypeProperty}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="10" DisplayMemberPath="Name" />
+        <ComboBox x:Name="AddressCBox" SelectedItem="{Binding Address}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="10" DisplayMemberPath="Name" />
+        <TextBox x:Name="MinPriceTBox" Text="{Binding MinPrice}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="10" />
+        <TextBox x:Name="MaxPriceTBox" Text="{Binding MaxPrice}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Margin="10" />
+        <Button x:Name="CancelBtn" IsCancel="True" Style="{DynamicResource OutlineBtn}" Content="Закрыть" Margin="10" Grid.Row="7" Click="CancelBtn_Click" />
+        <Button x:Name="SaveBtn" IsDefault="True" Style="{DynamicResource PrimaryBtn}" Content="Сохранить" Margin="10" Grid.Row="7" Grid.Column="1" Click="SaveBtn_Click" />
+    </Grid>
+</Window>

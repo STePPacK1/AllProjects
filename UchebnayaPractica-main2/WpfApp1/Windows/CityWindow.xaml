@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.Windows.CityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Windows"
+        mc:Ignorable="d"
+        Title="CityWindow" x:Name="LocalWindow" Height="250" Width="400" WindowStartupLocation="CenterOwner" MinWidth="400" MinHeight="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding ElementName=LocalWindow, Path=Title}" Grid.ColumnSpan="2" Style="{DynamicResource Heading1}" TextAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Text="Название" Margin="10" Grid.Row="1" Style="{DynamicResource Heading3}" TextAlignment="Right" VerticalAlignment="Center" />
+        <TextBox x:Name="NameTBox" Text="{Binding Name}" Margin="10" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
+        <Button x:Name="CancelBtn" IsCancel="True" Click="CancelBtn_Click" Margin="10" Grid.Row="2" Content="Отменить" Style="{DynamicResource OutlineBtn}" />
+        <Button x:Name="SaveBtn" IsDefault="True" Click="SaveBtn_Click" Margin="10" Grid.Row="2" Grid.Column="1" Content="Сохранить" Style="{DynamicResource PrimaryBtn}" />
+    </Grid>
+</Window>

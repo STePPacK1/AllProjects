@@ -1,0 +1,81 @@
+﻿<Page x:Class="WpfApp1.Pages.PropertiesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PropertiesPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListBox x:Name="PropertiesLBox" AlternationCount="2" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Grid.Row="0">
+                            <Run Text="{Binding Address.Street.City.Name}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding Address.Street.Name}" />
+                            <Run Text=" д " />
+                            <Run Text="{Binding Address.HomeNumber}" />
+                            <Run Text=" кв " />
+                            <Run Text="{Binding Address.ApartmentNumber}" />
+                        </TextBlock>
+                        <TextBlock Style="{DynamicResource Heading5}" Grid.Row="1">
+                            <Run Text="Тип: " />
+                            <Run Text="{Binding TypeProperty.Name}" />
+                            <LineBreak />
+                            <Run Text="Комнат: " />
+                            <Run Text="{Binding Room}" />
+                            <LineBreak />
+                            <Run Text="Этаж: " />
+                            <Run Text="{Binding Floor}" />
+                            <LineBreak />
+                            <Run Text="Площадь: " />
+                            <Run Text="{Binding Area}" />
+                        </TextBlock>
+                        <TextBlock Style="{DynamicResource Heading5}" Grid.Row="1" Grid.Column="1">
+                            <Run Text="Адрес: " />
+                            <Run Text="{Binding Address.Street.City.Name}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding Address.Street.Name}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding Address.HomeNumber}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding Address.ApartmentNumber}" />
+                            <LineBreak />
+                            <Run Text="Район: " />
+                            <Run Text="{Binding Address.District.Name}" />
+                        </TextBlock>
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Click="EditBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Click="RemoveBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="AddBtn" Margin="10" Grid.Row="2" Style="{DynamicResource PrimaryBtn}" Content="Добавить" Click="AddBtn_Click" />
+        <TextBlock Margin="10" TextWrapping="Wrap" Style="{DynamicResource Heading1}" TextAlignment="Center" VerticalAlignment="Center" Text="Недвижимости"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,144 @@
+﻿<Page x:Class="WpfApp1.Pages.UtilityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UtilityPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListBox x:Name="TypesLBox" AlternationCount="2" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Text="{Binding Name}" />
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Margin="10" Click="EditTypeBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Margin="10" Click="RemoveTypeBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="DistrictsLBox" AlternationCount="2" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Text="{Binding Name}" Grid.Row="0" />
+                        <TextBlock Style="{DynamicResource Heading5}" Grid.Row="1">
+                            <Run Text="Широта: " />
+                            <Run Text="{Binding Coordinate.Latitude}" />
+                            <LineBreak />
+                            <Run Text="Долгота: " />
+                            <Run Text="{Binding Coordinate.Longitude}" />
+                        </TextBlock>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Margin="10" Click="EditDistrictBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Margin="10" Click="RemoveDistrictBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="StreetsLBox" AlternationCount="2" Grid.Row="1" Grid.Column="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Text="{Binding Name}" Grid.Row="0" />
+                        <TextBlock Style="{DynamicResource Heading5}" Grid.Row="1">
+                            <Run Text="Город: " />
+                            <Run Text="{Binding City.Name}" />
+                        </TextBlock>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Margin="10" Click="EditStreetBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Margin="10" Click="RemoveStreetBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="CitiesLBox" AlternationCount="2" Grid.Row="1" Grid.Column="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Text="{Binding Name}"  />
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Margin="10" Click="EditCityBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Margin="10" Click="RemoveCityBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="AddTypeBtn" Margin="10" Grid.Row="2" Style="{DynamicResource PrimaryBtn}" Content="Добавить тип" Click="AddTypeBtn_Click" />
+        <Button x:Name="AddDistrictBtn" Margin="10" Grid.Row="2" Grid.Column="1" Style="{DynamicResource PrimaryBtn}" Content="Добавить район" Click="AddDistrictBtn_Click" />
+        <Button x:Name="AddStreetBtn" Margin="10" Grid.Row="2" Grid.Column="2" Style="{DynamicResource PrimaryBtn}" Content="Добавить улицу" Click="AddStreetBtn_Click" />
+        <Button x:Name="AddCityBtn" Margin="10" Grid.Row="2" Grid.Column="3" Style="{DynamicResource PrimaryBtn}" Content="Добавить город" Click="AddCityBtn_Click" />
+        <TextBlock Margin="10,18,10,17" TextWrapping="Wrap" Style="{DynamicResource Heading2}" TextAlignment="Center" VerticalAlignment="Center" Text="Типы недвижимости"/>
+        <TextBlock Margin="10,18,10,17" Grid.Column="1" TextWrapping="Wrap" Style="{DynamicResource Heading2}" TextAlignment="Center" VerticalAlignment="Center" Text="Районы"/>
+        <TextBlock Margin="10,18,10,17" Grid.Column="2" TextWrapping="Wrap" Style="{DynamicResource Heading2}" TextAlignment="Center" VerticalAlignment="Center" Text="Улицы"/>
+        <TextBlock Margin="10,18,10,17" Grid.Column="3" TextWrapping="Wrap" Style="{DynamicResource Heading2}" TextAlignment="Center" VerticalAlignment="Center" Text="Города"/>
+
+    </Grid>
+</Page>

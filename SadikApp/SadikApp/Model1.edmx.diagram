@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f314fc72f9eb4a98aa38ff539f5676a3" Name="Diagram1">
+        <EntityTypeShape EntityType="KindergartenDBModel.Gender" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.Group" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.Guardian" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.PresenceStatus" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.Pupil" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.PupilGuardian" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.ReasonForAbsence" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KindergartenDBModel.VisitLog" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="KindergartenDBModel.FK_Guardian_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_Pupil_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_Pupil_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_PupilGuardian_Guardian" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_VisitLog_PresenceStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_PupilGuardian_Pupil" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_VisitLog_Pupil" ManuallyRouted="false" />
+        <AssociationConnector Association="KindergartenDBModel.FK_VisitLog_ReasonForAbsence" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

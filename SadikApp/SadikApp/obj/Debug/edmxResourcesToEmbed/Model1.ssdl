@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище KindergartenDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Age" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guardian">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PresenceStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pupil">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PupilGuardian">
+    <Key>
+      <PropertyRef Name="PupilID" />
+      <PropertyRef Name="GuardianID" />
+    </Key>
+    <Property Name="PupilID" Type="int" Nullable="false" />
+    <Property Name="GuardianID" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReasonForAbsence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="VisitLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PupilID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="ArirvalTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartureTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="PresenceStatusID" Type="int" Nullable="false" />
+    <Property Name="ReasonForAdsenceID" Type="int" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Guardian_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Guardian" Type="Self.Guardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Guardian">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pupil_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Pupil" Type="Self.Pupil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pupil">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pupil_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="Pupil" Type="Self.Pupil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pupil">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PupilGuardian_Guardian">
+    <End Role="Guardian" Type="Self.Guardian" Multiplicity="1" />
+    <End Role="PupilGuardian" Type="Self.PupilGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guardian">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PupilGuardian">
+        <PropertyRef Name="GuardianID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PupilGuardian_Pupil">
+    <End Role="Pupil" Type="Self.Pupil" Multiplicity="1" />
+    <End Role="PupilGuardian" Type="Self.PupilGuardian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pupil">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PupilGuardian">
+        <PropertyRef Name="PupilID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitLog_PresenceStatus">
+    <End Role="PresenceStatus" Type="Self.PresenceStatus" Multiplicity="1" />
+    <End Role="VisitLog" Type="Self.VisitLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PresenceStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitLog">
+        <PropertyRef Name="PresenceStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitLog_Pupil">
+    <End Role="Pupil" Type="Self.Pupil" Multiplicity="1" />
+    <End Role="VisitLog" Type="Self.VisitLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pupil">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitLog">
+        <PropertyRef Name="PupilID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitLog_ReasonForAbsence">
+    <End Role="ReasonForAbsence" Type="Self.ReasonForAbsence" Multiplicity="0..1" />
+    <End Role="VisitLog" Type="Self.VisitLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReasonForAbsence">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VisitLog">
+        <PropertyRef Name="ReasonForAdsenceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище KindergartenDBModelContainer">
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guardian" EntityType="Self.Guardian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PresenceStatus" EntityType="Self.PresenceStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pupil" EntityType="Self.Pupil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PupilGuardian" EntityType="Self.PupilGuardian" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReasonForAbsence" EntityType="Self.ReasonForAbsence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitLog" EntityType="Self.VisitLog" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Guardian_Gender" Association="Self.FK_Guardian_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Guardian" EntitySet="Guardian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pupil_Gender" Association="Self.FK_Pupil_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Pupil" EntitySet="Pupil" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pupil_Group" Association="Self.FK_Pupil_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Pupil" EntitySet="Pupil" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PupilGuardian_Guardian" Association="Self.FK_PupilGuardian_Guardian">
+      <End Role="Guardian" EntitySet="Guardian" />
+      <End Role="PupilGuardian" EntitySet="PupilGuardian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PupilGuardian_Pupil" Association="Self.FK_PupilGuardian_Pupil">
+      <End Role="Pupil" EntitySet="Pupil" />
+      <End Role="PupilGuardian" EntitySet="PupilGuardian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitLog_PresenceStatus" Association="Self.FK_VisitLog_PresenceStatus">
+      <End Role="PresenceStatus" EntitySet="PresenceStatus" />
+      <End Role="VisitLog" EntitySet="VisitLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitLog_Pupil" Association="Self.FK_VisitLog_Pupil">
+      <End Role="Pupil" EntitySet="Pupil" />
+      <End Role="VisitLog" EntitySet="VisitLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitLog_ReasonForAbsence" Association="Self.FK_VisitLog_ReasonForAbsence">
+      <End Role="ReasonForAbsence" EntitySet="ReasonForAbsence" />
+      <End Role="VisitLog" EntitySet="VisitLog" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

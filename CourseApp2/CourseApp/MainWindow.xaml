@@ -1,0 +1,25 @@
+﻿<Window x:Class="CourseApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <Button Style="{DynamicResource buttonStyle}" Margin="5,25" x:Name="b_back" Content="Назад" Grid.Column="1" Click="b_back_Click" />
+        <Button Style="{DynamicResource buttonStyle}" Margin="5,25" x:Name="b_exit" Content="Выход" Grid.Column="2" Click="b_exit_Click" />
+
+        <Frame x:Name="f_mineFrame" Grid.ColumnSpan="4" Grid.Row="1" NavigationUIVisibility="Hidden" Source="/CourseApp;component/Pages/AutPage.xaml"/>
+    </Grid>
+</Window>

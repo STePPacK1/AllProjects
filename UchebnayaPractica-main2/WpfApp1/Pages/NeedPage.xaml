@@ -1,0 +1,61 @@
+﻿<Page x:Class="WpfApp1.Pages.NeedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NeedPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="5*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListBox x:Name="NeedsLBox" Grid.Row="1" AlternationCount="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{DynamicResource Heading2}" Grid.Row="0">
+                            <Run Text="{Binding LastName}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding FirstName}" />
+                            <Run Text=" " />
+                            <Run Text="{Binding Patronymic}" />
+                        </TextBlock>
+                        <TextBlock Style="{DynamicResource Heading5}" Grid.Row="1">
+                            <Run Text="Логин: " />
+                            <Run Text="{Binding Account.Login}" />
+                            <LineBreak />
+                            <Run Text="Email: " />
+                            <Run Text="{Binding Email}" />
+                            <LineBreak />
+                            <Run Text="Телефон: " />
+                            <Run Text="{Binding Phone}" />
+                        </TextBlock>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Click="EditBtn_Click" Style="{DynamicResource PrimaryBtn}" Content="Редактировать" />
+                            <Button Grid.Row="1" Click="RemoveBtn_Click" Style="{DynamicResource OutlineBtn}" Content="Удалить" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="AddBtn" Margin="10" Grid.Row="2" Style="{DynamicResource PrimaryBtn}" Content="Добавить" Click="AddBtn_Click" />
+        <TextBlock Margin="10" TextWrapping="Wrap" Style="{DynamicResource Heading1}" TextAlignment="Center" VerticalAlignment="Center" Text="Потребности"/>
+
+    </Grid>
+</Page>

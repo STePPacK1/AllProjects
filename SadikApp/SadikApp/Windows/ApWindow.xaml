@@ -1,0 +1,89 @@
+﻿<Window x:Class="SadikApp.Windows.ApWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SadikApp.Windows"
+        mc:Ignorable="d"
+        Title="ApWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding PhotoPath}" Margin="1" />
+                <Button Grid.Row="1" x:Name="b_d" Content="Загрузить фото" Style="{DynamicResource buttonStyle}" FontSize="12" Margin="1"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Фамилия:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1" Text="Имя:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" Text="Отчество:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="4" Text="Дата рождения:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="5" Text="Группа:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3" Text="Пол:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="6" Text="Родители:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="7" Text="Примечания:" Style="{DynamicResource tblStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1" x:Name="g_tbANDb" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="tb_surn" Grid.Row="0" Margin="1" Text="{Binding Surname}" Style="{DynamicResource tbStyle}"/>
+                <TextBox x:Name="tb_name" Grid.Row="1" Margin="1" Text="{Binding Name}" Style="{DynamicResource tbStyle}"/>
+                <TextBox x:Name="tb_patr" Grid.Row="2" Margin="1" Text="{Binding Patronymic}" Style="{DynamicResource tbStyle}"/>
+                <ComboBox Name="cb_gender" Grid.Row="3" SelectedItem="{Binding Gender}"  DisplayMemberPath="Name"/>
+                <DatePicker Name="dp_date" Grid.Row="4"/>
+                <ComboBox Name="cb_group" Grid.Row="5" SelectedItem="{Binding Group}"  DisplayMemberPath="Name"/>
+                <ComboBox Name="cb_guard" Grid.Row="6" SelectedItem="{Binding Guardian}"  DisplayMemberPath="FullNameG"/>
+                <TextBox x:Name="tb_note" Grid.Row="7" Margin="1" Text="{Binding Notes}" Style="{DynamicResource tbStyle}"/>
+
+                <Button x:Name="b_save" Content="Сохранить" Grid.Row="8" Style="{DynamicResource buttonStyle}" Click="b_save_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

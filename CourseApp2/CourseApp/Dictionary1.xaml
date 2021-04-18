@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CourseApp">
+
+
+    <Style x:Key="tbl_textStyle" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="{DynamicResource tblFormTextColor}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="tbl_hidenStyle" TargetType="TextBlock" BasedOn="{StaticResource tbl_textStyle}">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="tb_formStyle" TargetType="TextBox">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Segoe UI Historic"/>
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="Foreground" Value="{DynamicResource tblFormTextColor}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource tbFormStle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="7" BorderThickness="2" BorderBrush="{TemplateBinding Property=BorderBrush}">
+                            <ContentPresenter Margin="2,0" Content="{TemplateBinding Property=Text}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <Style x:Key="buttonStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="FontFamily" Value="Segoe UI Semibold"/>
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="Foreground" Value="#ffff"/>
+            <Setter Property="Background" Value="{DynamicResource tbFormStle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="7" BorderThickness="1" BorderBrush="Transparent" Background="{TemplateBinding Property=Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding Property=Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <SolidColorBrush x:Key="tblFormTextColor">
+        <SolidColorBrush.Color>
+            <Color>#FFE82583</Color>
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+    <SolidColorBrush x:Key="tbFormStle">
+        <SolidColorBrush.Color>
+            <Color>#FFB01C63</Color>
+        </SolidColorBrush.Color>
+    </SolidColorBrush>
+</ResourceDictionary>

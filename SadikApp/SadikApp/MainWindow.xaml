@@ -1,0 +1,25 @@
+﻿<Window x:Class="SadikApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SadikApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Image Source="images/logo.png" Grid.Column="1"/>
+        <Button x:Name="b_back" Content="Назад" Style="{DynamicResource buttonStyle}" Grid.Column="2" Margin="5" Click="b_back_Click"/>
+        <Button x:Name="b_exit" Content="В меню" Style="{DynamicResource buttonStyle}" Grid.Column="0" Margin="5" Click="b_exit_Click"/>
+
+        <Frame x:Name="mineFrame" NavigationUIVisibility="Hidden" Source="/SadikApp;component/Pages/MenuPage.xaml" Grid.Row="1" Grid.ColumnSpan="3"/>
+    </Grid>
+</Window>

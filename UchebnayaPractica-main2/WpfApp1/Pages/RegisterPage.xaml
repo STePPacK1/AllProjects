@@ -1,0 +1,48 @@
+﻿<Page x:Class="WpfApp1.Pages.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegisterPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{DynamicResource Heading1}" Margin="10" TextWrapping="Wrap" Text="Регистрация" Grid.ColumnSpan="2" VerticalAlignment="Center" TextAlignment="Center"/>
+        <TextBox x:Name="LoginTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="FirstNameTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="LastNameTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="PatronymicTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="PhoneTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBox x:Name="EmailTBox" Margin="10" TextWrapping="Wrap" Text="" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"/>
+        <PasswordBox x:Name="PasswordPBox" Margin="10" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+        <PasswordBox x:Name="RepeatPBox" Margin="10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Логин" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Пароль" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Повторите пароль" Grid.Row="3" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Имя" Grid.Row="4" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Фамилия" Grid.Row="5" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Отчество" Grid.Row="6" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Телефон" Grid.Row="7" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <TextBlock Margin="10" TextWrapping="Wrap" Text="Email" Grid.Row="8" VerticalAlignment="Center" TextAlignment="Right" Style="{DynamicResource Paragraph}"/>
+        <Button x:Name="RegisterBtn" Content="Регистрация" Margin="10" Grid.Row="9" Grid.ColumnSpan="2" Style="{DynamicResource PrimaryBtn}" Click="RegisterBtn_Click" />
+
+    </Grid>
+</Page>
